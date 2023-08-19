@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>College Management System</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" type="text/css" href="SAMS/css/login.css" />
+  <link rel="stylesheet" type="text/css" href="Mentor/css/style.css" />
+  <style>
+    .ul {
+	border: 1px solid black;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: rgb(46, 49, 57);
+    
+  }
+  
+ .ul> li {
+	float: left;
+    
+  }
+  
+  .ul>li a {
+    
+	display: block;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-family: "Poppins", sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+	padding: 14px 16px;
+	text-decoration: none;
+    
+  }
+  
+  .ul>li a:hover {
+	background-color: rgb(248, 32, 32);
+  }
+
+  .mcahead>h1{
+color: White;
+text-align: center;
+padding: 25px;
+background-size: 100% ;
+background-repeat: no-repeat;
+  background-image: url('data:image/jpeg;base64,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');
+}
+.mcahead>marquee{
+    margin-top: -10px;
+    color: blue;
+    font-style: italic;
+    font-size: 20px;
+    background-color: rgb(215, 188, 212);
+    border: 1px solid;
+}
+
+.mcahead>.mcacontent{
+    
+    border: 5px solid;
+    padding: 15px;
+    width: 40%;
+    text-align: center;
+    margin-left: 460px;
+    background-color: rgb(244, 226, 181);
+
+}
+
+.aboutmca{
+    margin: 50px 200px 0 200px ;
+    text-align: justify;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  color: #37423b;
+  font-size: 14px;
+  background: #eef0ef;
+}
+
+#footer .footer-top {
+  padding: 60px 0 30px 0;
+  background: #f9faf9;
+}
+
+#footer .footer-top .footer-contact {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-contact h4 {
+  font-size: 22px;
+  margin: 0 0 30px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+}
+
+#footer .footer-top .footer-contact p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+  color: #777777;
+}
+
+#footer .footer-top h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #444444;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: #5fcf80;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #777777;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  text-decoration: none;
+  color: #5fcf80;
+}
+
+#footer .footer-newsletter {
+  font-size: 15px;
+}
+
+#footer .footer-newsletter h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #444444;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-newsletter form {
+  margin-top: 30px;
+  background: #fff;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 50px;
+  text-align: left;
+  border: 1px solid #e0e5e2;
+}
+
+#footer .footer-newsletter form input[type=email] {
+  border: 0;
+  padding: 4px 8px;
+  width: calc(100% - 100px);
+}
+
+#footer .footer-newsletter form input[type=submit] {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px 2px 20px;
+  background: #5fcf80;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 50px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#footer .footer-newsletter form input[type=submit]:hover {
+  background: #3ac162;
+}
+
+#footer .credits {
+  padding-top: 5px;
+  font-size: 13px;
+}
+
+#footer .credits a {
+  color: #3ac162;
+  transition: 0.3s;
+}
+
+#footer .credits a:hover {
+  color: #5fcf80;
+}
+
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #5fcf80;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .social-links a:hover {
+  background: #3ac162;
+  color: #fff;
+  text-decoration: none;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <ul class="ul">
+    <li><a class="active" href="http://localhost/SAMS/Mentor/College.php">Home</a></li>
+    <li><a href="http://localhost/SAMS/Mentor/about.php">About</a></li>
+    <li><a href="http://localhost/SAMS/Mentor/courses.php">Courses</a></li>
+    <li><a href="http://localhost/SAMS/Mentor/trainers.php">Trainers</a></li>
+    <li><a href="http://localhost/SAMS/Mentor/events.php">Events</a></li>
+  
+    
+    <li><a href="http://localhost/SAMS/Mentor/contact.php">Contact</a></li>
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="height: 50px;">
+      Department
+    </button>
+    <ul  class="dropdown-menu">
+      <li><a class="dropdown-item" href="mca.html">MCA</a></li>
+      <li><a class="dropdown-item" href="mba.html">MBA</a></li>
+      <li><a class="dropdown-item" href="mec.html">Mechanical ENGG.</a></li>
+      <li><a class="dropdown-item" href="elec.html">Electrical ENGG.</a></li>
+      <li><a class="dropdown-item" href="electele.html">Electronics Tele. ENGG.</a></li>
+      <li><a class="dropdown-item" href="cs.html">CSE</a></li>
+      <li><a class="dropdown-item" href="automob.html">Automobile ENGG.</a></li>
+      <li><a class="dropdown-item" href="civil.html">Civil ENGG.</a></li>
+      
+    </ul>
+    </ul>
+  <section class="mcahead">
+    <h1>Automobile Engineering</h1>
+    <marquee width= "100%" direction="left">Admission for Automobile ENGG. 2023 Batch Started From XX/XX/2023 & Ends on XX/XX/2023 | Result of 3rd Semester Exam Has Been Released! For More Information visit: BPUTexam.co.in</marquee>
+    <div class="mcacontent">
+        <p><strong>Name : </strong>Dr. Sujit Kumar Khuntia</p>
+        <p><strong>Designation : </strong>Associate Professor, HOD</p>
+        <p><strong>Email : </strong>sujit_khuntia@yahoo.com</p>
+        <p><strong>Contact : </strong>+91 89554XXXX</p>
+
+    </div>
+
+    <div class="aboutmca">
+        <h2>About Us</h2>
+        <p class="about1">The Department of Automobile Engineering is one of the oldest departments of the College of Engineering Bhubaneswar (COEB). It has been established in 2009. The Department of Automobile Engineering has been actively engaged in teaching and research activities in diverse fields of Automobile Engineering. Through excellent quality faculty members, the Department offers Engineering Degree (B.Tech.) in Automobile Engineering which is developing fast globally to cope up with the present need.</p>
+
+    </div><hr/>
+    <div class="aboutmca">
+        <h2>Mission</h2>
+        <p class="about2">The mission of Automobile Department is to empower the students to play a key role through the competency based educational and training programs that promote planned and sustainable growth of the society, state, country and the entire world with employable technical skills consistent with latest technological innovations. The aspiration is also to develop the student’s caliber in order to fulfill the challenging needs of industries expectations and to spring up the department to attain the international quality in the field of Research & Development. We are providing high quality technical education in the field of computer applications and in that way to create computer professionals with proper leadership skills, commitment and moral values.
+        </div><hr/>
+
+    <div class="aboutmca">
+        <h2>Vision</h2>
+        <p class="about3">Our commitment is for transparency and equal opportunity which is a key factor for better technocrats, rich in values and excellence, with a promising future. Our vision is to be a pioneering institution in the field of education & technology to bring a new level of inspiration among the students.
+        </div><hr/>
+    <div class="aboutmca">
+        <h2>Objective</h2>
+        <p class="about3">P. G. Department of Automobile  with an intake of 60 students was established in the year 2006 with an approval of AICTE, New Delhi under the affiliation of BPUT. The Primary objective of this program is to train top class IT professionals so as to cater for the growing needs of various disciplines of computer application and Information Technology.
+
+            The main objective of the programme is to provide professional training in the area of computer applications and to develop computer professionals to meet the demand of the fast growing IT industry who excel in their profession through innovative ideas, knowledge and team work. Course work is designed to reflect the state-of-the-art both in its theoretical and application dimensions. The department imparts computer education to MCA students through class room lectures, seminars, group exercises, industry visits, projects and guest lectures by eminent personalities of the IT industry.
+            
+            Our course curriculum is designed to provide our students a solid conceptual foundations and an extensive focus on application of these concepts to real life situations. The course content is a perfect blend of recent trends of Computer Science and information technology subjects in all five semesters. The Sixth semester is dedicated exclusively for project work. The students undertake projects covering almost the entire array of computer application and Information Technology in various reputed industries in the country.
+    </div>
+  </section>
+
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>COEB</h3>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022<br>
+              United States <br><br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>COEB</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+          Designed by <a href="https://bootstrapmade.com/">MCA Students</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  </body>
+  </html>
